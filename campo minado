@@ -1,0 +1,86 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPZ2CqfdiGIzxu/plkCAbt3",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/joaoFelype/Introducao-ao-Python-e-Colab/blob/main/campo%20minado\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3OcXm0ds8CUH",
+        "outputId": "8b5288b6-58b0-4b19-9476-2248960ae740"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']]\n",
+            "escolha valores2\n",
+            "[['2' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']]\n",
+            "escolha valores6\n",
+            "[['2' '6' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']\n",
+            " ['-' '-' '-' '-' '-']]\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "tab = [[\"-\" for n in range(5)] for m in range(5)]\n",
+        "print(np.array(tab))\n",
+        "for i in range(5):\n",
+        "  for j in range (5):\n",
+        "    tab [i][j] = int(input('escolha valores'))\n",
+        "    print(np.array(tab))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "matriz= []"
+      ],
+      "metadata": {
+        "id": "vJeB5TIabJZL"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}

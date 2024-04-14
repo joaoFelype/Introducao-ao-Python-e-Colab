@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyPZ2CqfdiGIzxu/plkCAbt3",
+      "authorship_tag": "ABX9TyMpDkLTiYsXLUsjmH4FbrIl",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -28,59 +28,58 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "3OcXm0ds8CUH",
-        "outputId": "8b5288b6-58b0-4b19-9476-2248960ae740"
-      },
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "[['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']]\n",
-            "escolha valores2\n",
-            "[['2' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']]\n",
-            "escolha valores6\n",
-            "[['2' '6' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']\n",
-            " ['-' '-' '-' '-' '-']]\n"
-          ]
-        }
-      ],
       "source": [
         "import numpy as np\n",
-        "tab = [[\"-\" for n in range(5)] for m in range(5)]\n",
-        "print(np.array(tab))\n",
-        "for i in range(5):\n",
-        "  for j in range (5):\n",
-        "    tab [i][j] = int(input('escolha valores'))\n",
-        "    print(np.array(tab))"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "matriz= []"
+        "\n",
+        "def iniciar_jogo():\n",
+        "    while True:\n",
+        "        escolha = input(\"Para começar o jogo aperte s/n: \")\n",
+        "        if escolha.lower() == 's':\n",
+        "            # Cria as matrizes\n",
+        "            tab = np.full((5, 5), '-')\n",
+        "            bombas = np.random.choice([0, 1], size=(5, 5))\n",
+        "\n",
+        "            while True:\n",
+        "                print(tab)\n",
+        "\n",
+        "                #elemento nas matrizes\n",
+        "                linha = int(input(\"Escolha a coordenada da linha: \")) - 1\n",
+        "                coluna = int(input(\"Escolha a coordenada da coluna: \")) - 1\n",
+        "\n",
+        "                # verificação de bomba\n",
+        "                if bombas[linha, coluna] == 1:\n",
+        "                    print(\"voce perdeu!\")\n",
+        "                    print(bombas)\n",
+        "                    break\n",
+        "                else:\n",
+        "                    # Conta o número de bombas adjacentes\n",
+        "                    minas_adjacentes = np.sum(bombas[max(0, linha-1):min(5, linha+2), max(0, coluna-1):min(5, coluna+2)]) - bombas[linha, coluna]\n",
+        "                    tab[linha, coluna] = str(minas_adjacentes) if minas_adjacentes > 0 else '0'\n",
+        "\n",
+        "                    # Marca os espaços vazios ao redor do número\n",
+        "                    for i in range(max(0, linha-1), min(5, linha+2)):\n",
+        "                        for j in range(max(0, coluna-1), min(5, coluna+2)):\n",
+        "                            if bombas[i, j] == 0 and tab[i, j] == '-':\n",
+        "                                tab[i, j] = '#'\n",
+        "        else:\n",
+        "            print(\"Volte sempre :)\")\n",
+        "            break\n",
+        "\n",
+        "iniciar_jogo()\n",
+        "\n"
       ],
       "metadata": {
-        "id": "vJeB5TIabJZL"
+        "id": "zZBdvMcqp6r3"
       },
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "sPD8ndn3vC4y"
+      }
     }
   ]
 }
